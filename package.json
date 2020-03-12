@@ -15,6 +15,7 @@
   },
   "files": [
     "LICENSE",
+    "package-lock.json",
     "dist/*.js"
   ],
   "author": "Milo Casagrande <milo@foundries.io>",
