@@ -18,7 +18,7 @@ let cfg;
 
 export function config() {
   if (!cfg) {
-    const cfg = convict({
+    cfg = convict({
       config: {
         format: String,
         default: '',
