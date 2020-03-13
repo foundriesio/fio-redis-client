@@ -34,6 +34,11 @@ export function config() {
           format: 'port',
           default: 6379,
           env: 'FIO_REDIS_PORT'
+        },
+        password: {
+          format: String,
+          default: '',
+          env: 'FIO_REDIS_PASSWORD'
         }
       }
     });
