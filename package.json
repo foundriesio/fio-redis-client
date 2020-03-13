@@ -6,7 +6,7 @@
     "node": ">= 12"
   },
   "description": "A redis client for *.foundries.io web apps",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "prebuild": "rimraf dist",
     "prepublish": "npm run build",
