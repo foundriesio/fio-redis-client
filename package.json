@@ -1,7 +1,7 @@
 {
   "name": "@foundriesio/redis-client",
   "private": false,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "engines": {
     "node": ">= 12"
   },
