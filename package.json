@@ -7,11 +7,11 @@
     "node": ">=14.0.0"
   },
   "description": "A redis client for *.foundries.io web apps",
-  "main": "dist/main.js",
-  "module": "src/index.js",
+  "main": "./dist/main.cjs",
+  "module": "./src/index.js",
   "exports": {
     ".": {
-      "require": "./dist/main.js",
+      "require": "./dist/main.cjs",
       "default": "./src/index.js"
     }
   },
@@ -25,7 +25,7 @@
   "files": [
     "LICENSE.md",
     "package-lock.json",
-    "dist/*.js",
+    "dist",
     "src"
   ],
   "lint-staged": {
