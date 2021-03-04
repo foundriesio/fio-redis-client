@@ -2,23 +2,46 @@
   "name": "@foundriesio/redis-client",
   "private": false,
   "version": "1.2.15",
+  "type": "module",
   "engines": {
-    "node": ">= 12"
+    "node": ">=14.0.0"
   },
   "description": "A redis client for *.foundries.io web apps",
   "main": "dist/main.js",
+  "module": "src/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/main.js",
+      "default": "./src/index.js"
+    }
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "prepare": "npm run build",
-    "build": "NODE_ENV=production webpack --progress",
+    "build": "NODE_ENV=production webpack --config webpack/webpack.config.js --progress",
     "lint": "prettier *.md *.js ./src/*.js ./src/**/*.js  --write",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "LICENSE",
+    "LICENSE.md",
     "package-lock.json",
-    "dist/*.js"
+    "dist/*.js",
+    "src"
   ],
+  "lint-staged": {
+    "src/**/*.+(js)": [
+      "eslint --config ./src/.eslintrc.json --fix",
+      "prettier --write"
+    ],
+    "src/**/*.+(md|css|scss|yaml)": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "author": "Milo Casagrande <milo@foundries.io>",
   "license": "Apache-2.0",
   "dependencies": {
@@ -35,6 +58,8 @@
     "eslint": "^7.21.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-security": "^1.4.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "webpack": "^5.24.3",

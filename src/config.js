@@ -15,12 +15,6 @@ convict.addFormats(convict_format_with_validator);
 convict.addFormats(convict_format_with_moment);
 convict.addParser({ extension: 'json', parse: json5.parse });
 
-const { NODE_ENV } = process.env;
-
-if (NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
-
 let cfg;
 
 export function config() {
@@ -29,25 +23,25 @@ export function config() {
       config: {
         format: String,
         default: '',
-        env: 'FIO_CONFIG_FILE'
+        env: 'FIO_CONFIG_FILE',
       },
       redis: {
         host: {
           format: String,
           default: 'localhost',
-          env: 'FIO_REDIS_HOST'
+          env: 'FIO_REDIS_HOST',
         },
         port: {
           format: 'port',
           default: 6379,
-          env: 'FIO_REDIS_PORT'
+          env: 'FIO_REDIS_PORT',
         },
         password: {
           format: String,
           default: '',
-          env: 'FIO_REDIS_PASSWORD'
-        }
-      }
+          env: 'FIO_REDIS_PASSWORD',
+        },
+      },
     });
 
     const configFile = cfg.get('config');
